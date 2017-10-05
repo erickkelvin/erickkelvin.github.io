@@ -1,8 +1,9 @@
 var href = "";
 $(document).ready(function() {
     $("a").on("click",function(e){
-        e.preventDefault();
         href = $(this).attr('href');
+        if (href.includes("mailto")) return;
+        e.preventDefault();
         $("body").animate({opacity:"0", "margin-top": "-2%" }, 200, function() {
             document.location = href;
             $("body").css("opacity", "1");

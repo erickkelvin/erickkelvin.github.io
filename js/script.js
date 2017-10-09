@@ -11,13 +11,17 @@ $(document).ready(function() {
         
     }
 
-    $(".menu-item").click(function() {
+    $(".menu-item").click(function(e) {
+        e.preventDefault();
+        window.location.href = $(this).attr("href");
         let item = $($(this).attr("href"));
         if (item.is(":visible")) {
             $(this).removeClass("curr-item");
             item.slideUp();
             $("html, body").animate({ scrollTop: "0" });
             $("#header").css("height","150px");
+            $("hr").css("margin", "60px auto");
+            history.pushState('', '', window.location.pathname);
         }
         else {
             $(".menu-item").removeClass("curr-item");
@@ -30,10 +34,12 @@ $(document).ready(function() {
             else {
                 item.slideDown();
             }
+            document.title = $(this).text() + " | Erick Santos";
             $('html, body').animate({
                 scrollTop: (item.offset().top - $("body").offset().top + $("body").scrollTop())
             },700);
             $("#header").css("height","100px");
+            $("hr").css("margin", "30px auto");
         }
     });
 

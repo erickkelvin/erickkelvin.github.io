@@ -39,6 +39,7 @@ body {
 }
 
 h1 {
+    display:inline-block;
     margin-top:5px;
     margin-bottom:2px;
     font-size: 35px;
@@ -46,8 +47,8 @@ h1 {
 }
 
 h4 {
-    margin-top:-5px;
-    color: gray;
+    margin-top:0px;
+    color: #888;
     font-weight: lighter;
 }
 
@@ -64,14 +65,13 @@ i.fa-envelope {
     margin-top:40px;
 }
 
-
 hr {
     display: block;
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin: 60px auto;
     border-color:lightgray;
     opacity:0.1;
-    width:25%;
+    width:40vmin;
+    transition: ease .4s;
 }
 
 #menu .menu-item {
@@ -122,7 +122,7 @@ hr {
 }
 
 .content > div, #portfolio > div {
-    width: 50%;
+    width: 90vmin;
     margin: 0 auto;
 }
 
@@ -134,7 +134,7 @@ hr {
     display:table-row;
     text-align: left;
     padding:15px;
-    box-shadow: 0px 0px 1px #888;
+    border: 0.5px rgb(235, 235, 235) solid;
     border-radius:4px;
     transition: ease .3s;
     width:85%;
@@ -191,4 +191,10 @@ hr {
 @keyframes easein {
     from { opacity:0; transform: translateY(-2%); }
     to   { opacity:1; transform: translateY(0%); }
+}
+
+@media screen and (max-width:767px) {
+    .footer {
+        display: none;
+    }
 }

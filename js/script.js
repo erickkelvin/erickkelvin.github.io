@@ -22,8 +22,14 @@ $(document).ready(function() {
         else {
             $(".menu-item").removeClass("curr-item");
             $(this).addClass("curr-item");
-            $(".content").slideUp();
-            item.slideDown();
+            if ($(".content").is(":visible")) {
+                $(".content").slideUp(function(){
+                    item.slideDown();
+                });
+            }
+            else {
+                item.slideDown();
+            }
             $('html, body').animate({
                 scrollTop: (item.offset().top - $("body").offset().top + $("body").scrollTop())
             },700);

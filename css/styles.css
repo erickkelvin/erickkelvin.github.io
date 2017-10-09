@@ -14,6 +14,8 @@ body {
 
 #header {
     background-color: var(--main-color);
+    border-bottom: 1px #008bcc solid;
+    box-shadow: 0px 0px 1px #888;
     width: 100%;
     height:150px;
     animation: .9s easein;
@@ -37,15 +39,14 @@ body {
 }
 
 h1 {
-    margin-top:-5px;
+    margin-top:5px;
     margin-bottom:2px;
     font-size: 35px;
     font-weight: lighter;
-    text-shadow: 0px 0px 1px #888;
 }
 
 h4 {
-    margin-top:5px;
+    margin-top:-5px;
     color: gray;
     font-weight: lighter;
 }
@@ -63,8 +64,14 @@ i.fa-envelope {
     margin-top:40px;
 }
 
-#menu{
-    margin-top:120px;
+
+hr {
+    display: block;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border-color:lightgray;
+    opacity:0.1;
+    width:25%;
 }
 
 #menu .menu-item {
@@ -78,7 +85,7 @@ i.fa-envelope {
     font-weight: bold;
 }
 
-a {
+#profile-links a, #menu a, .content a {
     display: inline-block;
     margin:10px;
     text-decoration: none;
@@ -87,63 +94,101 @@ a {
     transition: ease 0.3s;
 }
 
-a:hover {
+#profile-links a:hover, #menu a:hover {
     color: var(--main-color);
 }
 
 .icon {
     margin:-2px 2px;
+    margin-right:5px;
     width:16px;
     height:16px;
     display: inline-block;
-    background-position: left 0px top 0px;
+    background-position: left;
     background-size: 32px 16px;
     background-repeat: no-repeat;
 }
 
-a .datavis {
+.datavis {
     background-image:  url(../img/datavis-icon-48.png);
 }
 
-a .cc {
+.cc {
     background-image:  url(../img/ccufc-icon-48.png);
-}
-
-a:hover .datavis, a:hover .cc {
-    background-position: right;
 }
 
 .content {
     display: none;
-    text-align: center;
-    margin:0;
 }
 
-.content > div {
+.content > div, #portfolio > div {
     width: 50%;
     margin: 0 auto;
 }
 
+#portfolio > div {
+    display:table;
+}
+
+.portfolio-item {
+    display:table-row;
+    text-align: left;
+    padding:15px;
+    box-shadow: 0px 0px 1px #888;
+    border-radius:4px;
+    transition: ease .3s;
+    width:85%;
+}
+
+.portfolio-item div:nth-child(2) {
+    width:25%;
+}
+
+.portfolio-item div:nth-child(2) {
+    width:5%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    transition: ease .3s;
+    padding-left:10px;
+}
+
+.portfolio-item:hover {
+    background-color: #f5f5f5;
+}
+
+.portfolio-item:hover div:nth-child(2) {
+    color: var(--main-color);
+}
+
+.portfolio-item p {
+    font-size: 14px;
+    margin:7px 0px;
+}
+
 .footer {
-    margin-bottom:50px;
+    position:fixed;
+    bottom:20px;
+    z-index:1;
+    right:20px;
+    text-align: right;
+    font-size:12px;
+    color:lightgray;
 }
 
 #about {
     text-align: center;
     color:gray;
-}
-
-#portfolio {
-    margin: 20px;
+    margin-bottom:50px;
 }
 
 .curr-item {
     font-size: 24px !important;
-    color: var(--main-color);
+    color: var(--main-color) !important;
 }
 
 
 @keyframes easein {
     from { opacity:0; transform: translateY(-2%); }
     to   { opacity:1; transform: translateY(0%); }
-  }
+}

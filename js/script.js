@@ -13,7 +13,6 @@ $(document).ready(function() {
 
     $(".menu-item").click(function(e) {
         e.preventDefault();
-        window.location.href = $(this).attr("href");
         let item = $($(this).attr("href"));
         if (item.is(":visible")) {
             $(this).removeClass("curr-item");
@@ -21,9 +20,11 @@ $(document).ready(function() {
             $("html, body").animate({ scrollTop: "0" });
             $("#header").css("height","150px");
             $("hr").css("margin", "60px auto");
-            history.pushState('', '', window.location.pathname);
+            document.title = "Erick Santos";
+            history.pushState('', document.title, window.location.pathname);
         }
         else {
+            window.location.href = $(this).attr("href");
             $(".menu-item").removeClass("curr-item");
             $(this).addClass("curr-item");
             if ($(".content").is(":visible")) {

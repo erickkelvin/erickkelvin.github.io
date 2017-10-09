@@ -8,6 +8,7 @@ $(document).ready(function() {
             scrollTop: ($(currID).offset().top)
         },700);
         $("a[href='" + currID + "']").addClass("curr-item");
+        document.title = $("a[href='" + currID + "']").text() + " | Erick Santos";
         
     }
 
@@ -21,7 +22,7 @@ $(document).ready(function() {
             $("#header").css("height","150px");
             $("hr").css("margin", "60px auto");
             document.title = "Erick Santos";
-            history.pushState('', document.title, window.location.pathname);
+            history.pushState("", "", window.location.pathname);
         }
         else {
             window.location.href = $(this).attr("href");

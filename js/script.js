@@ -1,15 +1,10 @@
 $(document).ready(function() {
     let currPage = window.location.href.split("#");
-    if (currPage.length > 1) {
+    if ((currPage.length > 1)&&(currPage[1]!="")) {
         let currID = "#" + currPage[1];
-        $(currID).slideDown();
-        $("#header").css("height","100px");
-        $('html, body').animate({
-            scrollTop: ($(currID).offset().top)
-        },700);
-        $("a[href='" + currID + "']").addClass("curr-item");
-        document.title = $("a[href='" + currID + "']").text() + " | Erick Santos";
-        
+        if ($(currID).length) {
+            showContent($("a[href='" + currID + "']"),$(currID));
+        }
     }
 
     $(".menu-item").click(function(e) {
@@ -27,22 +22,26 @@ $(document).ready(function() {
         else {
             window.location.href = $(this).attr("href");
             $(".menu-item").removeClass("curr-item");
-            $(this).addClass("curr-item");
-            if ($(".content").is(":visible")) {
-                $(".content").slideUp(function(){
-                    item.slideDown();
-                });
-            }
-            else {
-                item.slideDown();
-            }
-            document.title = $(this).text() + " | Erick Santos";
-            $('html, body').animate({
-                scrollTop: (item.offset().top - $("body").offset().top + $("body").scrollTop())
-            },700);
-            $("#header").css("height","100px");
-            $("hr").css("margin", "30px auto");
+            showContent($(this),item);
         }
     });
 
 });
+
+function showContent(menuTitle, item) {
+    menuTitle.addClass("curr-item");
+    if ($(".content").is(":visible")) {
+        $(".content").slideUp(function(){
+            item.slideDown();
+        });
+    }
+    else {
+        item.slideDown();
+    }
+    document.title = menuTitle.text() + " | Erick Santos";
+    $('html, body').animate({
+        scrollTop: (item.offset().top - $("body").offset().top + $("body").scrollTop())
+    },700);
+    $("#header").css("height","100px");
+    $("hr").css("margin", "30px auto");
+}

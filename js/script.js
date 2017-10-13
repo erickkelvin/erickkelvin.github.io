@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    let currPage = window.location.href.split("#");
+    var currPage = window.location.href.split("#");
     if ((currPage.length > 1)&&(currPage[1]!="")) {
-        let currID = "#" + currPage[1];
+        var currID = "#" + currPage[1];
         if ($(currID).length) {
             showContent($("a[href='" + currID + "']"),$(currID));
         }
@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     $(".menu-item").click(function(e) {
         e.preventDefault();
-        let item = $($(this).attr("href"));
+        var item = $($(this).attr("href"));
         if (item.is(":visible")) {
             $(this).removeClass("curr-item");
             item.slideUp();

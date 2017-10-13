@@ -122,7 +122,8 @@ hr {
 }
 
 .content > div, #portfolio > div {
-    width: 90vmin;
+    width: 65vw;
+    max-width:800px;
     margin: 0 auto;
 }
 
@@ -182,6 +183,13 @@ hr {
     margin-bottom:50px;
 }
 
+#about div {
+    text-align: left;
+    max-width:700px;
+    line-height:28px;
+    
+}
+
 .curr-item {
     font-size: 24px !important;
     color: var(--main-color) !important;
@@ -197,4 +205,20 @@ hr {
     .footer {
         display: none;
     }
+    .content > div, #portfolio > div {
+        width: 85vw;
+    }
+}
+
+span.bold {
+    font-weight: bold;
+    color:#666;
+}
+
+span.underline {
+    text-decoration: underline;
+}
+
+span.italic {
+    font-style: italic;
 }

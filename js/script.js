@@ -7,29 +7,32 @@ $(document).ready(function() {
         }
     }
 
-    $(".menu-item").click(function(e) {
-        e.preventDefault();
-        var item = $($(this).attr("href"));
-        if (item.is(":visible")) {
-            $(this).removeClass("curr-item");
-            item.slideUp();
+    window.onpopstate = function() {
+        var currMenuTitle = window.location.hash.charAt(1).toUpperCase() + window.location.hash.slice(2);
+        var currMenuItem = $(".menu-item:contains('"+currMenuTitle+"')");
+        var currItemContent = $(window.location.hash);
+
+        if ((currItemContent.is(":visible"))||(window.location.hash=="")) {
+            currMenuItem.removeClass("curr-item");
+            $(".content").slideUp();
             $("html, body").animate({ scrollTop: "0" });
             $("#header").css("height","150px");
             $("hr").css("margin", "60px auto");
             document.title = "Erick Santos";
-            history.pushState("", "", window.location.pathname);
+            if (currItemContent.is(":visible")) {
+                history.pushState("", "Erick Santos", window.location.pathname);
+            }
         }
         else {
-            window.location.href = $(this).attr("href");
             $(".menu-item").removeClass("curr-item");
-            showContent($(this),item);
+            showContent(currMenuItem,currItemContent);
         }
-    });
+    };
 
 });
 
-function showContent(menuTitle, item) {
-    menuTitle.addClass("curr-item");
+function showContent(menuItem, item) {
+    menuItem.addClass("curr-item");
     if ($(".content").is(":visible")) {
         $(".content").slideUp(function(){
             item.slideDown();
@@ -38,7 +41,7 @@ function showContent(menuTitle, item) {
     else {
         item.slideDown();
     }
-    document.title = menuTitle.text() + " | Erick Santos";
+    document.title = menuItem.text() + " | Erick Santos";
     $('html, body').animate({
         scrollTop: (item.offset().top - $("body").offset().top + $("body").scrollTop())
     },700);

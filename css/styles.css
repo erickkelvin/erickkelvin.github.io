@@ -20,7 +20,7 @@ html, body {
 }
 
 #header {
-    background-image: url("../img/bg.fw.png");
+    background-color: var(--main-color);
     border-bottom: 1px #1391cc solid;
     box-shadow: 0px 0px 1px lightgray;
     width: 100%;

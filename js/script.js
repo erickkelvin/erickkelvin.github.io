@@ -16,8 +16,9 @@ $(document).ready(function() {
             currMenuItem.removeClass("curr-item");
             $(".content").slideUp();
             $("html, body").animate({ scrollTop: "0" });
-            $("#header").css("height","150px");
-            $("hr").css("margin", "60px auto");
+            $("#header").css("height","130px");
+            if($(window).width() > 767) { $("hr").css("margin", "60px auto"); }
+            else { $("hr").css("margin", "35px auto"); }
             document.title = "Erick Santos";
             if (currItemContent.is(":visible")) {
                 history.pushState("", "Erick Santos", window.location.pathname);
@@ -44,7 +45,7 @@ function showContent(menuItem, item) {
     document.title = menuItem.text() + " | Erick Santos";
     $('html, body').animate({
         scrollTop: (item.offset().top - $("body").offset().top + $("body").scrollTop())
-    },700);
-    $("#header").css("height","100px");
+    });
+    $("#header").css("height","90px");
     $("hr").css("margin", "30px auto");
 }

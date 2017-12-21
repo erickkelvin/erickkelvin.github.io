@@ -74,6 +74,7 @@ i.fa-envelope {
 
 #profile-links {
     margin-top:40px;
+    margin-bottom:10px;
 }
 
 hr {
@@ -115,9 +116,54 @@ hr {
 }
 
 .content > div, #portfolio > div {
-    width: 65vw;
+    width: 60vw;
     max-width:800px;
     margin: 0 auto;
+}
+
+#about {
+    text-align: center;
+    color:gray;
+}
+
+#about div {
+    text-align: left;
+    max-width:700px;
+    line-height:28px;
+    margin:25px auto;
+}
+
+#about div.left {
+    display: table-cell;
+    width: 100px;
+    text-align: right;
+    font-size: 15px;
+    font-weight: bold;
+    float: none;
+    padding-right: 10px;
+    color: var(--main-color);
+}
+
+#about div.right {
+    display: table-cell;
+    border-left: 3px solid var(--main-color);
+    padding-left: 10px;
+    font-size: 15px;
+}
+
+#about #more-linkedin {
+    color:gray;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+#about a#more-linkedin:hover {
+    color: var(--main-color);
+}
+
+#about .fa-external-link {
+    margin-left: 5px;
 }
 
 #portfolio > div {
@@ -125,26 +171,35 @@ hr {
 }
 
 .portfolio-item {
-    display:table-row;
+    display:table;
     text-align: left;
-    padding:15px;
+    padding:12px;
     border: 0.5px rgb(235, 235, 235) solid;
     border-radius:4px;
     transition: ease .4s;
-    width:30%;
+    width:80%;
+    background-color: #fff;
 }
 
 .portfolio-img {
-    width: 100%;
-    border: 0.5px #ebebeb solid;
-    filter: opacity(80%);
+    display: table-cell;
+    vertical-align: middle;
+    width: 20%;
     transition: ease .4s;
 }
 
+.portfolio-img img {
+    width: 100%;
+    border: 0.5px #ebebeb solid;
+    filter: opacity(80%);
+}
+
 .portfolio-description {
-    border-bottom: 1px solid #f5f5f5;
-    padding: 10px 0px;
-    margin: 10px 0px;
+    display: table-cell;
+    width: 75%;
+    border-right: 1px solid #f5f5f5;
+    vertical-align: middle;
+    padding: 0px 10px;
     color: #666;
 }
 
@@ -153,8 +208,12 @@ hr {
 }
 
 .portfolio-link {
+    display: table-cell;
+    width: 5%;
+    padding-left: 15px;
     text-align: center;
-    padding-top:5px;
+    font-size: 20px;
+    vertical-align: middle;
     transition: ease .4s;
     color: #666;
 }
@@ -182,18 +241,6 @@ hr {
 .portfolio-item p {
     font-size: 14px;
     margin:7px 0px;
-}
-
-#about {
-    text-align: center;
-    color:gray;
-}
-
-#about div {
-    text-align: left;
-    max-width:700px;
-    line-height:28px;
-    
 }
 
 .curr-item {
@@ -246,20 +293,4 @@ span.italic {
 .footer span {
     font-size:12px;
     color: rgb(185, 185, 185);
-}
-
-#about .fa{
-    display: table-cell;
-    text-align: center;
-    width: 60px;
-    font-size: 30px;
-    float: left;
-}
-
-#about p {
-    display: table-cell;
-}
-
-#about div {
-    margin:20px auto;
 }

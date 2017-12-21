@@ -44,7 +44,7 @@ function showContent(menuItem, item) {
     }
     document.title = menuItem.text() + " | Erick Santos";
     $('html, body').animate({
-        scrollTop: (item.offset().top - $("body").offset().top + $("body").scrollTop())
+        scrollTop: item.offset().top - 100
     });
     $("#header").css("height","90px");
     $("hr").css("margin", "30px auto");

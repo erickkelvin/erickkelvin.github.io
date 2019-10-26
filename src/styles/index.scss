@@ -1,0 +1,89 @@
+@font-face {
+  font-family: avenirNext;
+  src: url(../fonts/avenir-next-regular.woff);
+}
+
+$text-color-primary: #333;
+$text-color-secondary: #999;
+$color-highlight: #44b18d;
+
+@mixin fadeInAnimation($delay: 0s) {
+  opacity: 0;
+  animation: fadeIn .5s ease-out forwards;
+  animation-delay: $delay;
+}
+
+body {
+  margin: 0;
+  font-family: avenirNext;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.profile {
+  background: linear-gradient(180deg, $color-highlight 130px, #fff 0px);
+  padding-top: 50px;
+  text-align: center;
+  transform-origin: top;
+  animation: scaleDown .5s ease-out forwards;
+
+  .profile__picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 2px 0px #777;
+    @include fadeInAnimation(.5s);
+  }
+
+  .profile__title {
+    margin-top: 10px;
+    font-size: 35px;
+    color: $text-color-primary;
+    @include fadeInAnimation(.75s);
+  }
+
+  .profile__subtitle {
+    margin-top: 8px;
+    color: $text-color-secondary;
+    font-weight: bold;
+    font-size: 14px;
+    @include fadeInAnimation(1s);
+  }
+
+  .profile__links {
+    margin-top: 100px;
+    @include fadeInAnimation(1.5s);
+
+    a {
+      text-decoration: none;
+      margin: 20px;
+      color: $text-color-primary;
+      transition: .2s ease;
+
+      &:hover {
+        color: $color-highlight;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleDown {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
